@@ -30,13 +30,13 @@ public class BookController {
         return new ResponseEntity<>(book, HttpStatus.OK);
     }
 
-    @PostMapping("/add")
+    @PostMapping()
     public ResponseEntity<?> addBook(@RequestBody Book book) {
         bookService.addBook(book);
         return new ResponseEntity<>(book, HttpStatus.OK);
     }
 
-    @PutMapping("/update")
+    @PutMapping()
     public ResponseEntity<?> updateBook(@RequestBody Book book) {
         bookService.updateBook(book);
         return new ResponseEntity<>(book, HttpStatus.OK);
