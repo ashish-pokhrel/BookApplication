@@ -29,13 +29,22 @@ public class BookClientApplication implements CommandLineRunner {
         System.out.println(book.getIsbn() + " " + book.getTitle());
         System.out.println();
 
-        Books books = restTemplate.getForObject(serverURL, Books.class);
-        System.out.println("-------------------Get ALL ---------------------");
-        System.out.println(books);
-        System.out.println();
+//        Books books = restTemplate.getForObject(serverURL, Books.class);
+//        System.out.println("-------------------Get ALL ---------------------");
+//        System.out.println(books);
+//        System.out.println();
 
+//        books = restTemplate.getForObject(serverURL + "/", Books.class);
+//        System.out.println("-------------------Get ALL---------------------");
+//        System.out.println(books);
+//
         restTemplate.delete(serverURL + "/delete/{isbn}", "CS404");
         System.out.println("Software architecture successfully deleted");
+        System.out.println();
+
+        book.setTitle("Enterprise architecture1");
+        restTemplate.postForObject(serverURL + "/", book, Book.class);
+        System.out.println("Software architecture to Enterprise architecture updated successfully");
         System.out.println();
 
         book.setTitle("Enterprise architecture");
@@ -43,9 +52,7 @@ public class BookClientApplication implements CommandLineRunner {
         System.out.println("Software architecture to Enterprise architecture updated successfully");
         System.out.println();
 
-        books = restTemplate.getForObject(serverURL + "/", Books.class);
-        System.out.println("-------------------Get ALL---------------------");
-        System.out.println(books);
+
     }
 
     @Bean

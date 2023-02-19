@@ -6,12 +6,10 @@ import org.springframework.jms.annotation.EnableJms;
 
 @SpringBootApplication
 @EnableJms
-public class BookApplication {
+public class BookReceiverApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BookApplication.class, args);
+		SpringApplication.run(BookReceiverApplication.class, args);
 	}
-
-
 
 }
